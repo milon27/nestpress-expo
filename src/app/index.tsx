@@ -1,4 +1,5 @@
 import { Text, View } from "react-native";
+import Button from "../components/button";
 
 export default function Index() {
   return (
@@ -6,6 +7,7 @@ export default function Index() {
       <Text className="text-xl font-bold text-blue-500">
         Welcome to Nativewind!
       </Text>
+      <Button />
     </View>
   );
 }
