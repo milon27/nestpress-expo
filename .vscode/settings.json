@@ -1,7 +1,11 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
-    "source.organizeImports": "explicit",
-    "source.sortMembers": "explicit"
-  }
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#00565d",
+        "titleBar.inactiveBackground": "#00565d"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit",
+        "source.sortMembers": "explicit"
+    }
 }

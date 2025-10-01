@@ -1,0 +1,10 @@
+services:
+    expo-web:
+        container_name: expo-web
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: prod
+        restart: always
+        ports:
+            - 3001:80
