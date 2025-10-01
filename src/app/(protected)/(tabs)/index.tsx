@@ -1,9 +1,5 @@
-import { Text, View } from "react-native"
+import HomeScreen from "@/src/views/screens/home/home.screen"
 
 export default function Index() {
-    return (
-        <View className="flex-1 items-center justify-center bg-white gap-y-2">
-            <Text className="text-xl font-bold text-blue-500">Welcome to Nestpress app!</Text>
-        </View>
-    )
+    return <HomeScreen />
 }
