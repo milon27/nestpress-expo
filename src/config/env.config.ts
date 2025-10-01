@@ -1,3 +1,3 @@
 export const EnvConfig = {
-    API_URL: `http://localhost:4000/api`,
+    API_URL: `http://Milon27s-mac.local:4000`,
 }

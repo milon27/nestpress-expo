@@ -28,27 +28,14 @@ export const ErrorUtil = {
                 errorMessage = "Zod Error!"
             }
 
-            // todo: handle this part in the axios interceptor
-            // if ((error as AxiosError).response?.status === StatusCode.UNAUTHORIZED) {
-            //     // handle logout
-            //     useUserStore.getState().logout()
-            // }
-
-            // if ((error as AxiosError).response?.status === StatusCode.UNAUTHORIZED) {
-            //     // handle logout
-            //     useUserStore.getState().logout()
-            // } else {
-            //     // if needed set custom error message here
-
-            //     if (error.code === AxiosError.ERR_BAD_REQUEST) {
-            //         errorMessage = "show popup"
-            //     }
-            // }
-
-            // ToastAndroid.showWithGravity(errorMessage, ToastAndroid.LONG, ToastAndroid.BOTTOM)
-            // MyLogger.logError("ApiService.interceptors.error", error)
             return { message: errorMessage }
-        } else {
+        }
+        // todo: learn about better auth error handling
+        //  else if (error instanceof BetterFetchError) {
+        //     const message = (error.error as { message: string; code: string }).message
+        //     return { message }
+        // }
+        else {
             return { message: error?.message }
         }
     },

@@ -1,5 +1,6 @@
 import { authClient } from "@/src/lib/auth-client"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { BetterFetchError } from "better-auth/react"
 import { useForm } from "react-hook-form"
 import { Alert } from "react-native"
 import { ILoginSchema, LoginSchema } from "./login.schema"
@@ -25,8 +26,11 @@ export const useLoginController = () => {
             })
             Alert.alert("Login successful")
         } catch (error) {
-            console.log("onSubmit login: ", error)
-            Alert.alert((error as Error).message)
+            console.log("onSubmit login: ", JSON.stringify(error, null, 2))
+            // todo: learn about better auth error handling
+            const { error: fetchError } = error as BetterFetchError
+            const message = (fetchError as { message: string; code: string }).message
+            Alert.alert(message)
         }
     }
 
