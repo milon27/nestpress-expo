@@ -1,6 +1,6 @@
-# Nestpress Expo project 👋
+# Nestpress Expo (sdk 57) project 👋
 
-This is an [Expo](https://expo.dev) project architect with nestpress style.
+This is an [Expo](https://expo.dev) project architect with nestpress style. auth is setup assuming backend is with betterauth
 
 ## Get started in dev
 
