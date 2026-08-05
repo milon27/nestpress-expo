@@ -1,11 +1,13 @@
 import { authClient } from "@/src/lib/auth-client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { BetterFetchError } from "better-auth/react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { Alert } from "react-native"
 import { ILoginSchema, LoginSchema } from "./login.schema"
 
 export const useLoginController = () => {
+    const [isLoading, setIsLoading] = useState(false)
     const {
         register,
         handleSubmit,
@@ -20,6 +22,7 @@ export const useLoginController = () => {
 
     const onSubmit = async (data: ILoginSchema) => {
         try {
+            setIsLoading(true)
             await authClient.signIn.email({
                 email: data.email,
                 password: data.password,
@@ -31,8 +34,10 @@ export const useLoginController = () => {
             const { error: fetchError } = error as BetterFetchError
             const message = (fetchError as { message: string; code: string }).message
             Alert.alert(message)
+        } finally {
+            setIsLoading(false)
         }
     }
 
-    return { register, onSubmit: handleSubmit(onSubmit), errors }
+    return { register, onSubmit: handleSubmit(onSubmit), errors, isLoading }
 }

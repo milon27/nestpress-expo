@@ -5,7 +5,7 @@ import MyButton from "../../components/my-button"
 import { useLoginController } from "./login.controller"
 
 export default function LoginScreen() {
-    const { onSubmit, register, errors } = useLoginController()
+    const { onSubmit, register, errors, isLoading } = useLoginController()
     const { name, onChange, ref } = register("email")
     const { name: passName, onChange: passOnChange, ref: passRef } = register("password")
     return (
@@ -26,7 +26,7 @@ export default function LoginScreen() {
                 onChangeText={text => passOnChange({ target: { name: passName, value: text } })}
             />
             {errors.password && <Text>{errors.password.message}</Text>}
-            <MyButton title="Login" onPress={onSubmit} />
+            <MyButton title="Login" onPress={onSubmit} isLoading={isLoading} />
         </SafeAreaView>
     )
 }
